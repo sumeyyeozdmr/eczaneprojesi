@@ -1,0 +1,752 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #edf6f2 0%, #ffffff 48%, #eef5f7 100%);
+    color: #263b35;
+    min-height: 100vh;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    height: 88px;
+    background: linear-gradient(135deg, #416f62, #5c897c);
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 7%;
+    box-shadow: 0 5px 20px rgba(55, 91, 81, 0.16);
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.logo-area h1 {
+    font-size: 23px;
+    margin-bottom: 4px;
+}
+
+.logo-area p {
+    font-size: 12px;
+    opacity: 0.88;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+    width: 90%;
+    max-width: 1250px;
+    margin: 32px auto 50px;
+}
+
+/* =========================
+   WELCOME
+========================= */
+
+.welcome {
+    margin-bottom: 20px;
+}
+
+.welcome h2 {
+    font-size: 25px;
+    color: #304f46;
+    margin-bottom: 7px;
+}
+
+.welcome p {
+    font-size: 14px;
+    color: #71817c;
+}
+
+/* =========================
+   SEARCH BOX
+========================= */
+
+.search-box {
+    background: rgba(255, 255, 255, 0.97);
+    padding: 28px 36px;
+    border-radius: 18px;
+    border: 1px solid #dce8e4;
+    box-shadow: 0 8px 25px rgba(54, 91, 82, 0.07);
+
+    display: grid;
+    grid-template-columns: 1fr 1.05fr 1.25fr;
+    gap: 22px;
+    align-items: end;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #536d65;
+}
+
+.input-group select,
+.input-group input {
+    width: 100%;
+    height: 48px;
+    border: 1px solid #d5e2de;
+    border-radius: 11px;
+    padding: 0 14px;
+    font-size: 14px;
+    background: white;
+    color: #263b35;
+    outline: none;
+    transition: 0.2s;
+}
+
+.input-group select:focus,
+.input-group input:focus {
+    border-color: #5d8d7e;
+    box-shadow: 0 0 0 3px rgba(93, 141, 126, 0.1);
+}
+
+.input-group input::placeholder {
+    color: #9aa7a3;
+}
+
+/* =========================
+   LOCATION BUTTON
+========================= */
+
+.location-button {
+    height: 48px;
+    border: 1px solid #79a294;
+    border-radius: 11px;
+    padding: 0 18px;
+    background: #f3f8f6;
+    color: #416f62;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+.location-button:hover:not(:disabled) {
+    background: #e7f1ed;
+    border-color: #5d8d7e;
+    transform: translateY(-1px);
+}
+
+/* =========================
+   SEARCH BUTTON
+========================= */
+
+.search-button {
+    height: 48px;
+    border: none;
+    border-radius: 11px;
+    padding: 0 22px;
+    background: #4c7f70;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+    box-shadow: 0 4px 12px rgba(76, 127, 112, 0.2);
+}
+
+.search-button:hover:not(:disabled) {
+    background: #3e6c5e;
+    transform: translateY(-1px);
+}
+
+button:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+.main-content {
+    display: grid;
+    grid-template-columns: 0.95fr 1.25fr;
+    gap: 24px;
+    margin-top: 28px;
+    align-items: start;
+}
+
+.left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+/* =========================
+   NEAREST PHARMACY CARD
+========================= */
+
+.nearest-card {
+    display: none;
+    background: linear-gradient(135deg, #ffffff 0%, #eef7f3 100%);
+    border: 1px solid #d1e3dd;
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: 0 8px 25px rgba(54, 91, 82, 0.06);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.nearest-card:hover {
+    border-color: #5b8b78;
+    box-shadow: 0 10px 28px rgba(54, 91, 82, 0.12);
+}
+
+.card-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.card-title h2 {
+    font-size: 18px;
+    color: #416f62;
+}
+
+.nearest-badge {
+    background: #e2eee9;
+    color: #4c7f70;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.nearest-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 14px;
+    background: #e3f0eb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 23px;
+    margin-bottom: 13px;
+}
+
+.nearest-card h3 {
+    font-size: 21px;
+    color: #29483f;
+    margin-bottom: 18px;
+}
+
+.pharmacy-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.pharmacy-info p {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #687b75;
+}
+
+.pharmacy-info strong {
+    color: #3a5b51;
+}
+
+/* =========================
+   NEAREST CARD BUTTONS
+========================= */
+
+.card-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 21px;
+}
+
+.card-buttons button {
+    height: 42px;
+    border: none;
+    border-radius: 9px;
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.call-button {
+    background: #5b8b78;
+}
+
+.share-button {
+    background: #718d98;
+}
+
+.card-buttons button:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+/* =========================
+   PHARMACY LIST
+========================= */
+
+.pharmacy-list-card {
+    background: rgba(255, 255, 255, 0.97);
+    border: 1px solid #dce7e3;
+    border-radius: 18px;
+    padding: 22px;
+    box-shadow: 0 8px 25px rgba(54, 91, 82, 0.05);
+}
+
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 17px;
+}
+
+.list-header h2 {
+    font-size: 18px;
+    color: #405f55;
+    margin-bottom: 4px;
+}
+
+.list-header p {
+    font-size: 11px;
+    color: #82908c;
+}
+
+#eczaneSayisi {
+    background: #edf4f1;
+    color: #5b7c71;
+    padding: 7px 11px;
+    border-radius: 15px;
+    font-size: 10px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+#eczaneListesi {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* =========================
+   PHARMACY CARDS
+========================= */
+
+.pharmacy-item {
+    background: #f8faf9;
+    border: 1px solid #dce7e3;
+    border-radius: 14px;
+    padding: 17px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.pharmacy-item:hover {
+    background: #f1f7f4;
+    border-color: #cbded7;
+    transform: translateY(-1px);
+}
+
+.pharmacy-card-content,
+.pharmacy-item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.pharmacy-card-content strong,
+.pharmacy-item-info strong {
+    font-size: 16px;
+    color: #35544b;
+}
+
+.pharmacy-card-content p,
+.pharmacy-item-info p {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #71817c;
+}
+
+.pharmacy-item-info .distance {
+    font-size: 12px;
+    color: #5b7c71;
+    font-weight: 600;
+}
+
+/* =========================
+   PHARMACY CARD BUTTONS
+========================= */
+
+.pharmacy-card-buttons,
+.pharmacy-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.pharmacy-card-buttons button,
+.pharmacy-actions button {
+    height: 38px;
+    border: none;
+    border-radius: 9px;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.small-call-button,
+.pharmacy-actions .call-button {
+    background: #5b8b78;
+}
+
+.small-share-button,
+.pharmacy-actions .share-button {
+    background: #718d98;
+}
+
+.pharmacy-card-buttons button:hover,
+.pharmacy-actions button:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+/* =========================
+   LOADING STATE & SPINNER
+========================= */
+
+.loading-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 35px 20px;
+    color: #4c7f70;
+    text-align: center;
+    gap: 12px;
+}
+
+.spinner {
+    width: 36px;
+    height: 36px;
+    border: 3px solid rgba(76, 127, 112, 0.2);
+    border-radius: 50%;
+    border-top-color: #4c7f70;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-state p {
+    font-size: 13px;
+    font-weight: 500;
+    color: #416f62;
+}
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+.empty-state {
+    text-align: center;
+    padding: 35px 15px;
+    color: #84928e;
+}
+
+.empty-state div {
+    font-size: 38px;
+    margin-bottom: 10px;
+    opacity: 0.7;
+}
+
+.empty-state strong {
+    display: block;
+    font-size: 14px;
+    color: #526a62;
+    margin-bottom: 6px;
+}
+
+.empty-state p {
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+/* =========================
+   MAP
+========================= */
+
+.map-container {
+    height: 720px;
+    background: #e9edef;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+    border: 1px solid #dce6e3;
+    display: flex;
+    flex-direction: column;
+}
+
+.map-top {
+    height: 70px;
+    background: rgba(255, 255, 255, 0.92);
+    border-bottom: 1px solid #dce6e3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    flex-shrink: 0;
+}
+
+.map-top h2 {
+    font-size: 16px;
+    color: #45645b;
+    margin-bottom: 3px;
+}
+
+.map-top p {
+    font-size: 11px;
+    color: #82918c;
+}
+
+.map-status {
+    background: #e5f0ec;
+    color: #5b7d72;
+    padding: 6px 10px;
+    border-radius: 15px;
+    font-size: 10px;
+}
+
+#harita {
+    width: 100%;
+    flex: 1;
+    min-height: 400px;
+}
+
+.map-info {
+    min-width: 220px;
+    max-width: 290px;
+    padding: 6px 2px;
+}
+
+.map-info h3 {
+    margin: 0 0 6px;
+    font-size: 15px;
+    color: #29483f;
+    font-weight: 700;
+}
+
+.map-info p {
+    margin: 4px 0;
+    font-size: 12px;
+    color: #536d65;
+    line-height: 1.4;
+}
+
+.map-info a {
+    color: #4c7f70;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.map-popup-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.map-popup-buttons.single {
+    grid-template-columns: 1fr;
+}
+
+.map-call-btn,
+.map-direction-btn,
+.map-direction-button {
+    width: 100%;
+    height: 36px;
+    margin: 0;
+    padding: 0 8px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.map-call-btn {
+    background: #5b8b78;
+}
+
+.map-call-btn:hover {
+    background: #4a7565;
+    transform: translateY(-1px);
+}
+
+.map-direction-btn,
+.map-direction-button {
+    background: #4c7f70;
+}
+
+.map-direction-btn:hover,
+.map-direction-button:hover {
+    background: #3e6c5e;
+    transform: translateY(-1px);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1100px) {
+    .search-box {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+
+    .map-container {
+        height: 500px;
+    }
+}
+
+@media (max-width: 700px) {
+    .header {
+        height: auto;
+        padding: 18px 5%;
+    }
+
+    .logo-area h1 {
+        font-size: 19px;
+    }
+
+    .logo-area p {
+        font-size: 11px;
+    }
+
+    .container {
+        width: 94%;
+        margin-top: 24px;
+    }
+
+    .welcome h2 {
+        font-size: 21px;
+    }
+
+    .search-box {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+
+    .nearest-card {
+        padding: 20px;
+    }
+
+    .pharmacy-list-card {
+        padding: 18px;
+    }
+
+    .map-container {
+        height: 430px;
+    }
+}
+
+@media (max-width: 450px) {
+    .logo {
+        width: 44px;
+        height: 44px;
+        font-size: 21px;
+    }
+
+    .logo-area {
+        gap: 10px;
+    }
+
+    .logo-area h1 {
+        font-size: 17px;
+    }
+
+    .logo-area p {
+        font-size: 10px;
+    }
+
+    .welcome p {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    .card-buttons {
+        grid-template-columns: 1fr;
+    }
+
+    .pharmacy-card-buttons,
+    .pharmacy-actions {
+        grid-template-columns: 1fr;
+    }
+
+    .map-container {
+        height: 380px;
+    }
+}

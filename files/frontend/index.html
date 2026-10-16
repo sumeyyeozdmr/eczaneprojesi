@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kocaeli Nöbetçi Eczane</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="logo-area">
+      <div class="logo">💊</div>
+      <div>
+        <h1>Kocaeli Nöbetçi Eczane</h1>
+        <p>Size en yakın nöbetçi eczaneyi kolayca bulun</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="welcome">
+      <h2>Nöbetçi Eczane Bul</h2>
+      <p>
+        Bulunduğunuz ilçeyi seçerek veya konumunuzu kullanarak nöbetçi eczaneleri anında görüntüleyin.
+      </p>
+    </section>
+
+    <section class="search-box">
+      <div class="input-group">
+        <label for="ilce">İlçe</label>
+        <select id="ilce">
+          <option value="">İlçe Seçiniz</option>
+          <option value="Başiskele">Başiskele</option>
+          <option value="Çayırova">Çayırova</option>
+          <option value="Darıca">Darıca</option>
+          <option value="Derince">Derince</option>
+          <option value="Dilovası">Dilovası</option>
+          <option value="Gebze">Gebze</option>
+          <option value="Gölcük">Gölcük</option>
+          <option value="İzmit">İzmit</option>
+          <option value="Kandıra">Kandıra</option>
+          <option value="Karamürsel">Karamürsel</option>
+          <option value="Kartepe">Kartepe</option>
+          <option value="Körfez">Körfez</option>
+        </select>
+      </div>
+
+      <button id="konumButonu" class="location-button">
+        📍 Konumuma En Yakın Eczaneyi Bul
+      </button>
+
+      <button id="araButonu" class="search-button">🔍 Eczaneleri Bul</button>
+    </section>
+
+    <section class="main-content">
+      <div class="left-column">
+        <div class="nearest-card">
+          <div class="card-title">
+            <h2>En Yakın Eczane</h2>
+            <span class="nearest-badge">EN YAKIN</span>
+          </div>
+          <div class="nearest-icon">🌿</div>
+          <h3 id="enYakinEczane">Henüz eczane seçilmedi</h3>
+          <div class="pharmacy-info">
+            <p><strong>📍 Adres:</strong> <span id="enYakinAdres">-</span></p>
+            <p><strong>📞 Telefon:</strong> <span id="enYakinTelefon">-</span></p>
+            <p><strong>📏 Mesafe:</strong> <span id="enYakinMesafe">-</span></p>
+            <p><strong>🕐 Nöbet:</strong> <span id="enYakinNobet">-</span></p>
+          </div>
+          <div class="card-buttons">
+            <button class="call-button" id="araTelefon">📞 Ara</button>
+            <button class="share-button" id="paylas">↗ Paylaş</button>
+          </div>
+        </div>
+
+        <div class="pharmacy-list-card">
+          <div class="list-header">
+            <div>
+              <h2>Nöbetçi Eczaneler</h2>
+              <p id="listeBaslikAciklama">Seçtiğiniz ilçedeki eczaneler</p>
+            </div>
+            <span id="eczaneSayisi">0 eczane</span>
+          </div>
+          <div id="eczaneListesi">
+            <div class="empty-state">
+              <div>💊</div>
+              <strong>Henüz eczane bulunamadı</strong>
+              <p>İlçe seçerek veya konum butonuna tıklayarak arama yapabilirsiniz.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-container">
+        <div class="map-top">
+          <div>
+            <h2>📍 Eczane Haritası</h2>
+            <p>Nöbetçi eczanelerin konumları</p>
+          </div>
+          <span class="map-status">Hazır</span>
+        </div>
+        <div id="harita"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAoCZE3_j9fRgXpMIx80QftrIon9XcAYQ&callback=initMap" defer></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{
+  "name": "eczane-api",
+  "version": "1.0.0",
+  "description": "Kocaeli nöbetçi eczane ve eczane API projesi",
+  "keywords": [
+    "eczane",
+    "kocaeli",
+    "nobetci",
+    "api",
+    "nodejs"
+  ],
+  "license": "ISC",
+  "author": "Sümeyye",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.6.2",
+    "helmet": "^8.3.0",
+    "mysql2": "^3.24.1",
+    "node-cron": "^4.6.0"
+  }
+}
